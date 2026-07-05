@@ -13,7 +13,11 @@ The technical approach to distributional realignment has transitioned from flat 
 
 
 ```mermaid
-[Statistical Moment Matching (2012)] ───> [Adversarial Alignment (DANN, 2016)] ───> [Self-Supervised Contrastive (2020-2023)] ───> [Foundation Model SAE Steering (Present)](Rigid Linear Covariance Shifts)            (Minimax Domain-Discriminator Blocks)          (Augmented Positive-Pair Projections)          (Monosemantic Latent Coordinate Clamping)
+flowchart LR
+    A["Statistical Moment Matching (2012)<br/>(Distribution Alignment via Feature Statistics)"]
+    --> B["Adversarial Domain Adaptation (DANN, 2016)<br/>(Domain-Invariant Representation Learning)"]
+    --> C["Self-Supervised Contrastive Learning (2020–2023)<br/>(Contrastive Representation Learning)"]
+    --> D["Mechanistic Feature Steering (Present)<br/>(Sparse Feature-Based Latent Steering)"]
 ```
 
 
@@ -58,7 +62,20 @@ To extract domain-invariant features smoothly without triggering network diverge
 
 
 ```mermaid
-Domain-Adversarial Neural Network (DANN) Loop┌───────────────────────┐│   Raw Input Tensors   │└───────────┬───────────┘│▼┌───────────────────────────┐│   Feature Extractor G_f   │└─────────────┬─────────────┘│┌────────────────────────┴────────────────────────┐▼                                                 ▼Label Predictor G_y                             Gradient Reversal Layer (GRL)(Minimize Classification Loss)                                    ││                                                 ▼│                                      Domain Discriminator G_d│                                      (Maximize Prediction Error)│                                                 │└────────────────────────┬────────────────────────┘│▼Unified Backpropagation Graph
+flowchart TB
+
+A["Raw Input Tensors"]
+--> B["Feature Extractor (G_f)"]
+
+B --> C["Label Predictor (G_y)<br/>Minimize Task Loss"]
+
+B --> D["Gradient Reversal Layer (GRL)"]
+D --> E["Domain Discriminator (G_d)<br/>Predict Source vs. Target Domain"]
+
+C --> F["Unified Backpropagation"]
+E --> F
+
+F --> G["Domain-Invariant Feature Representation"]
 ```
 
 *   **Gradient Reversal Layers (GRL Hooks)**
