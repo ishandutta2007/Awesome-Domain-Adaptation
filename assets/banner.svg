@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200">
+    <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#2a0845;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#6441A5;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#grad1)" rx="15" />
+    <text x="50%" y="50%" font-family="Arial" font-size="40" font-weight="bold" fill="white" alignment-baseline="middle" text-anchor="middle">
+        Awesome Domain Adaptation
+    </text>
+    <circle cx="100" cy="100" r="20" fill="white" opacity="0.5">
+        <animate attributeName="r" values="20;30;20" dur="2s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="700" cy="100" r="20" fill="white" opacity="0.5">
+        <animate attributeName="r" values="20;30;20" dur="2s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2s" repeatCount="indefinite" />
+    </circle>
+</svg>

@@ -1,5 +1,10 @@
 # Awesome-Domain-Adaptation
-## Domain Adaptation in AI: History, Progression, Variants, & Applications
+
+<div align="center">
+  <img src="assets/banner.svg" alt="Banner" />
+</div>
+
+## 🧠 Domain Adaptation in AI: History, Progression, Variants, & Applications
 
 **Domain Adaptation (DA)** is a specialized subfield of transfer learning and machine learning infrastructure designed to address the catastrophic performance drops that occur when an AI model is trained on one data distribution (the **Source Domain**) but deployed on a different, structurally altered distribution (the **Target Domain**). In standard machine learning frameworks, algorithms assume that the training data and real-world deployment data are independent and identically distributed (i.i.g.). 
 
@@ -7,7 +12,7 @@ Domain Adaptation explicitly breaks this assumption. When spatial visual texture
 
 ---
 
-## 1. The Macro Chronological Evolution
+## 🕰️ 1. The Macro Chronological Evolution
 
 The technical approach to distributional realignment has transitioned from flat statistical matrix adjustments to deep adversarial space mappings, self-supervised contrastive alignments, and modern open-vocabulary foundation model fine-tuning enclaves.
 
@@ -30,7 +35,7 @@ flowchart LR
 
 ---
 
-## 2. Core Functional & Supervised Variants
+## ⚙️ 2. Core Functional & Supervised Variants
 
 Domain Adaptation frameworks are strictly categorized based on the volume of ground-truth target data labels accessible to the optimization matrix.
 
@@ -43,7 +48,7 @@ Domain Adaptation frameworks are strictly categorized based on the volume of gro
 
 ---
 
-## 3. The Adversarial Alignment & Domain Reversal Matrix
+## ⚔️ 3. The Adversarial Alignment & Domain Reversal Matrix
 
 To extract domain-invariant features smoothly without triggering network divergence, adversarial pipelines intercept hidden layers using specialized gradient-flipping operators.
 
@@ -72,7 +77,7 @@ F --> G["Domain-Invariant Feature Representation"]
 
 ---
 
-## 4. Production Engineering Challenges & Hardware Solutions
+## 🚧 4. Production Engineering Challenges & Hardware Solutions
 
 Deploying large-scale domain adaptation matrices across industrial computing infrastructure introduces intense memory-bus and optimization bottlenecks.
 
@@ -83,7 +88,7 @@ Deploying large-scale domain adaptation matrices across industrial computing inf
 
 ---
 
-## 5. Frontier Real-World Industrial Applications
+## 🚀 5. Frontier Real-World Industrial Applications
 
 | Application | Description | Year First Used | Paper Link |
 |---|---|---|---|
