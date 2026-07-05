@@ -36,19 +36,19 @@ The technical approach to distributional realignment has transitioned from flat 
 
 Domain Adaptation frameworks are strictly categorized based on the volume of ground-truth target data labels accessible to the optimization matrix.
 
-### A. Unsupervised Domain Adaptation (UDA)
-*   **Mechanism:** The absolute default standard for industrial field deployment. The model has full access to a source dataset hosting pristine ground-truth labels ($D_s = \{(x_i^s, y_i^s)\}$), but receives *zero human labels* for the target deployment domain ($D_t = \{x_j^t\}$). The algorithm maps structural features across domains purely by tracking spatial density boundaries and representation manifolds.
-*   **Pros:** Requires zero human annotation costs in the deployment zone, making it a scalable engine for commercial edge fleets.
+- ### A. Unsupervised Domain Adaptation (UDA)
+	*   **Mechanism:** The absolute default standard for industrial field deployment. The model has full access to a source dataset hosting pristine ground-truth labels ($D_s = \{(x_i^s, y_i^s)\}$), but receives *zero human labels* for the target deployment domain ($D_t = \{x_j^t\}$). The algorithm maps structural features across domains purely by tracking spatial density boundaries and representation manifolds.
+	*   **Pros:** Requires zero human annotation costs in the deployment zone, making it a scalable engine for commercial edge fleets.
 
-### B. Semi-Supervised Domain Adaptation (SSDA)
-*   **Mechanism:** A hybrid data-allocation track. The target deployment domain contains a massive sea of unlabelled records, paired with a tiny, high-yield subset of human-vetted ground-truth anchor labels (e.g., exactly 5 to 10 labeled exemplars per target class).
-*   **Pros:** Radically stabilizes decision hyperplanes, outperforming pure UDA frameworks on challenging non-convex boundary distributions.
+- ### B. Semi-Supervised Domain Adaptation (SSDA)
+	*   **Mechanism:** A hybrid data-allocation track. The target deployment domain contains a massive sea of unlabelled records, paired with a tiny, high-yield subset of human-vetted ground-truth anchor labels (e.g., exactly 5 to 10 labeled exemplars per target class).
+	*   **Pros:** Radically stabilizes decision hyperplanes, outperforming pure UDA frameworks on challenging non-convex boundary distributions.
 
-### C. Few-Shot Domain Adaptation / In-Context Adaptation
-*   **Mechanism:** Bypasses weight optimization loops completely [INDEX: 11]. Enabled by long-context transformer architectures scaling past 128k thresholds cleanly via Rotary Position Embeddings [INDEX: 18, 22]. The target domain data features are injected directly into the active context window as a sequence of prefix exemplars [INDEX: 11], letting the frozen self-attention heads realign semantic representations zero-shot at runtime [INDEX: 11].
+- ### C. Few-Shot Domain Adaptation / In-Context Adaptation
+	*   **Mechanism:** Bypasses weight optimization loops completely [INDEX: 11]. Enabled by long-context transformer architectures scaling past 128k thresholds cleanly via Rotary Position Embeddings [INDEX: 18, 22]. The target domain data features are injected directly into the active context window as a sequence of prefix exemplars [INDEX: 11], letting the frozen self-attention heads realign semantic representations zero-shot at runtime [INDEX: 11].
 
-### D. Source-Free Domain Adaptation (SFDA)
-*   **Mechanism:** Enforced when strict privacy regulations (such as HIPAA or GDPR) or proprietary business IP prevent developers from sharing the original source data during downstream target tuning. The adaptation framework must realign parameters by looking *only* at the unlabelled target data and a pre-trained, frozen source checkpoint.
+- ### D. Source-Free Domain Adaptation (SFDA)
+	*   **Mechanism:** Enforced when strict privacy regulations (such as HIPAA or GDPR) or proprietary business IP prevent developers from sharing the original source data during downstream target tuning. The adaptation framework must realign parameters by looking *only* at the unlabelled target data and a pre-trained, frozen source checkpoint.
 
 ---
 
