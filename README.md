@@ -12,7 +12,11 @@ Domain Adaptation explicitly breaks this assumption. When spatial visual texture
 The technical approach to distributional realignment has transitioned from flat statistical matrix adjustments to deep adversarial space mappings, self-supervised contrastive alignments, and modern open-vocabulary foundation model fine-tuning enclaves.
 
 
+```mermaid
 [Statistical Moment Matching (2012)] ───> [Adversarial Alignment (DANN, 2016)] ───> [Self-Supervised Contrastive (2020-2023)] ───> [Foundation Model SAE Steering (Present)](Rigid Linear Covariance Shifts)            (Minimax Domain-Discriminator Blocks)          (Augmented Positive-Pair Projections)          (Monosemantic Latent Coordinate Clamping)
+```
+
+
 *   **The Statistical Moment Matching Era (Traditional Machine Learning Baseline)**
     *   *Concept:* The early foundational baseline. Domain shifts were handled by manually manipulating the mathematical statistics of feature distributions. Algorithms like **CORAL (Correlation Alignment, 2016)** or maximum mean discrepancy (MMD) estimators calculated the covariance matrices and mean vectors of the source and target data layers, applying a linear transformation matrix to align the source distribution's statistical moments directly with the target space.
     *   *Limitation:* Confined to simple, linear feature configurations. Statistical moment matching collapsed when scaled to highly non-linear deep neural network spaces or massive, high-dimensional unstructured datasets.
@@ -52,7 +56,11 @@ Domain Adaptation frameworks are strictly categorized based on the volume of gro
 
 To extract domain-invariant features smoothly without triggering network divergence, adversarial pipelines intercept hidden layers using specialized gradient-flipping operators.
 
+
+```mermaid
 Domain-Adversarial Neural Network (DANN) Loop┌───────────────────────┐│   Raw Input Tensors   │└───────────┬───────────┘│▼┌───────────────────────────┐│   Feature Extractor G_f   │└─────────────┬─────────────┘│┌────────────────────────┴────────────────────────┐▼                                                 ▼Label Predictor G_y                             Gradient Reversal Layer (GRL)(Minimize Classification Loss)                                    ││                                                 ▼│                                      Domain Discriminator G_d│                                      (Maximize Prediction Error)│                                                 │└────────────────────────┬────────────────────────┘│▼Unified Backpropagation Graph
+```
+
 *   **Gradient Reversal Layers (GRL Hooks)**
     *   *Profile:* Automates minimax optimization natively. During the forward execution pass, the GRL behaves as a standard, non-parameterized identity mapping. However, during the backward optimization pass, the GRL intercepts incoming gradients from the domain discriminator, multiplies them by a negative scalar ($-\lambda$), and injects them straight into the feature extractor, forcing the backend layers to actively neutralize domain-specific traits.
 *   **Maximum Mean Discrepancy (MMD) Regularizers**
